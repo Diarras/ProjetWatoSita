@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Faire un don</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            padding-bottom: 0;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="fragments/header :: header"></div>
+
+<main class="container mt-5 mb-0">
+    <h1 class="text-danger">❤️ Faire un don</h1>
+    <p>Contribuez à nos actions en soutenant financièrement notre mission.</p>
+
+    <h3>Types de dons</h3>
+    <ul>
+        <li>💳 Don ponctuel</li>
+        <li>🔁 Don mensuel</li>
+        <li>🎁 Don matériel ou en nature</li>
+    </ul>
+
+    <h3>Moyens de paiement</h3>
+    <ul>
+        <li>💳 Carte bancaire</li>
+        <li>🏦 Virement bancaire</li>
+        <li>📱 Paiement mobile</li>
+    </ul>
+
+    <h3>Avantages fiscaux</h3>
+    <ul>
+        <li>📄 Reçu fiscal pour chaque don</li>
+        <li>📉 Réduction d'impôt selon la législation en vigueur</li>
+    </ul>
+
+    <p>🔗 <a href="/formulaire-don" class="btn btn-outline-danger">Accéder au formulaire de don</a></p>
+</main>
+
+<div th:replace="fragments/footer :: footer"></div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
