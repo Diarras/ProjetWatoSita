@@ -1,14 +1,12 @@
-# Utilise une image Java officielle
-FROM openjdk:17-jdk-slim
-
-# Crée un dossier pour l'application
+# Étape 1 : Build avec Gradle
+FROM gradle:8.4-jdk17 AS builder
 WORKDIR /app
+COPY . .
+RUN gradle build --no-daemon
 
-# Copie le fichier .jar dans le conteneur
-COPY build/libs/association-site-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose le port utilisé par Spring Boot
+# Étape 2 : Exécution avec JDK léger
+FROM openjdk:17-jdk-slim
+WORKDIR /app
+COPY --from=builder /app/build/libs/*.jar app.jar
 EXPOSE 8080
-
-# Commande pour démarrer l'application
 ENTRYPOINT ["java", "-jar", "app.jar"]
